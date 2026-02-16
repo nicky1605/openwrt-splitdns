@@ -111,6 +111,9 @@ main() {
   # 4) Update feeds & install
   log "Updating all feeds"
   ./scripts/feeds update -a
+  log "splitdns feed HEAD:"
+  git -C "feeds/splitdns" log -1 --oneline || true
+
 
   log "Installing all feeds packages"
   ./scripts/feeds install -a
@@ -167,11 +170,23 @@ EOF
 
   # 7) Full build
   log "Building firmware (JOBS=$JOBS) ..."
+
+  set +e
   if [[ -n "$V" ]]; then
     make -j"$JOBS" "V=$V" $MAKE_FLAGS
+    rc=$?
   else
     make -j"$JOBS" $MAKE_FLAGS
+    rc=$?
   fi
+  set -e
+
+  if [[ $rc -ne 0 ]]; then
+    warn "World build failed (rc=$rc). Re-running luci-app-syscontrol with -j1 V=s for diagnosis..."
+    make package/feeds/splitdns/luci-app-syscontrol/{clean,compile} -j1 V=s || true
+    die "Build failed. See verbose syscontrol logs above."
+  fi
+
 
   # 8) Output artifacts
   log "Build done."
