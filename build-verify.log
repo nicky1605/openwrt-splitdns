@@ -1,0 +1,429 @@
+[1;32m[build][0m REPO_ROOT: /home/buildbot/openwrt-splitdns
+[1;32m[build][0m WORKDIR:   /home/buildbot/openwrt-splitdns/workdir
+[1;32m[build][0m Updating existing repo: /home/buildbot/openwrt-splitdns/workdir/openwrt
+Switched to branch 'openwrt-24.10'
+M	feeds.conf.default
+Your branch is up to date with 'origin/openwrt-24.10'.
+Already up to date.
+[1;32m[build][0m Checking out tag: v24.10.5
+Note: switching to 'v24.10.5'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 4f7e6e554 OpenWrt v24.10.5: adjust config defaults
+[1;32m[build][0m Ensuring splitdns feed exists in feeds.conf.default
+[1;32m[build][0m Updating all feeds
+Updating feed 'packages' from 'https://git.openwrt.org/feed/packages.git^953b6d47b4e9f0ad3c39547c6d3f9a828f10e206' ...
+Updating feed 'luci' from 'https://git.openwrt.org/project/luci.git^d88390be4ec9722cb427fee03368fc8c8582627d' ...
+Updating feed 'routing' from 'https://git.openwrt.org/feed/routing.git^178a40d321d6c11f18528f34777f4e24ce62b19a' ...
+Updating feed 'telephony' from 'https://git.openwrt.org/feed/telephony.git^92892fa285360b8981f62bf4e0a097e6449e7e33' ...
+Updating feed 'splitdns' from 'https://github.com/nicky1605/openwrt-splitdns-feed.git' ...
+Already up to date.
+Create index file './feeds/packages.index' 
+Create index file './feeds/luci.index' 
+Create index file './feeds/routing.index' 
+Create index file './feeds/telephony.index' 
+Create index file './feeds/splitdns.index' 
+[1;32m[build][0m Installing all feeds packages
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/onionshare-cli/Makefile' has a dependency on 'python3-pysocks', which does not exist
+WARNING: Makefile 'package/feeds/packages/onionshare-cli/Makefile' has a dependency on 'python3-unidecode', which does not exist
+WARNING: Makefile 'package/feeds/packages/python-zope-event/Makefile' has a build dependency on 'python-setuptools/host', which does not exist
+WARNING: Makefile 'package/feeds/packages/python-zope-interface/Makefile' has a build dependency on 'python-setuptools/host', which does not exist
+Installing all packages from feed packages.
+Installing all packages from feed luci.
+Installing all packages from feed routing.
+Installing all packages from feed telephony.
+Installing all packages from feed splitdns.
+[1;32m[build][0m Overriding feeds/packages/lang/golang with feeds/splitdns/golang
+[1;32m[build][0m Refreshing packages feed after golang override
+Updating feed 'packages' from 'https://git.openwrt.org/feed/packages.git^953b6d47b4e9f0ad3c39547c6d3f9a828f10e206' ...
+Create index file './feeds/packages.index' 
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/onionshare-cli/Makefile' has a dependency on 'python3-pysocks', which does not exist
+WARNING: Makefile 'package/feeds/packages/onionshare-cli/Makefile' has a dependency on 'python3-unidecode', which does not exist
+WARNING: Makefile 'package/feeds/packages/python-zope-event/Makefile' has a build dependency on 'python-setuptools/host', which does not exist
+WARNING: Makefile 'package/feeds/packages/python-zope-interface/Makefile' has a build dependency on 'python-setuptools/host', which does not exist
+Installing all packages from feed packages.
+[1;32m[build][0m Forcing v2ray-geodata to use splitdns feed (Strategy A)
+
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/splitdns/luci-app-mosdns/Makefile' has a dependency on 'v2ray-geoip', which does not exist
+WARNING: Makefile 'package/feeds/splitdns/luci-app-mosdns/Makefile' has a dependency on 'v2ray-geosite', which does not exist
+WARNING: Makefile 'package/feeds/packages/onionshare-cli/Makefile' has a dependency on 'python3-pysocks', which does not exist
+WARNING: Makefile 'package/feeds/packages/onionshare-cli/Makefile' has a dependency on 'python3-unidecode', which does not exist
+WARNING: Makefile 'package/feeds/packages/python-zope-event/Makefile' has a build dependency on 'python-setuptools/host', which does not exist
+WARNING: Makefile 'package/feeds/packages/python-zope-interface/Makefile' has a build dependency on 'python-setuptools/host', which does not exist
+Installing package 'v2ray-geodata' from splitdns
+[1;32m[build][0m OK: v2ray-geodata Makefile exists under package/feeds/splitdns
+[1;32m[build][0m Writing default /etc/opkg/distfeeds.conf (OpenWrt USTC mirror)
+[1;32m[build][0m Applying config: /home/buildbot/openwrt-splitdns/openwrt-24.10.5v0.2.config -> .config
+[1;32m[build][0m Running make defconfig
+
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/onionshare-cli/Makefile' has a dependency on 'python3-pysocks', which does not exist
+WARNING: Makefile 'package/feeds/packages/onionshare-cli/Makefile' has a dependency on 'python3-unidecode', which does not exist
+WARNING: Makefile 'package/feeds/packages/python-zope-event/Makefile' has a build dependency on 'python-setuptools/host', which does not exist
+WARNING: Makefile 'package/feeds/packages/python-zope-interface/Makefile' has a build dependency on 'python-setuptools/host', which does not exist
+#
+# configuration written to .config
+#
+[1;32m[build][0m TEMP workaround: strip runtime var/ from luci-app-syscontrol pkgdir
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/onionshare-cli/Makefile' has a dependency on 'python3-pysocks', which does not exist
+WARNING: Makefile 'package/feeds/packages/onionshare-cli/Makefile' has a dependency on 'python3-unidecode', which does not exist
+WARNING: Makefile 'package/feeds/packages/python-zope-event/Makefile' has a build dependency on 'python-setuptools/host', which does not exist
+WARNING: Makefile 'package/feeds/packages/python-zope-interface/Makefile' has a build dependency on 'python-setuptools/host', which does not exist
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/config'
+make[2]: 'conf' is up to date.
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/config'
+time: target/linux/prereq#0.15#0.15#0.28
+make[1]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt'
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/splitdns/luci-app-syscontrol'
+rm -rf /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1
+rm -f /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/stamp/.luci-app-syscontrol_installed
+rm -f /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/packages/luci-app-syscontrol.list
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/splitdns/luci-app-syscontrol'
+time: package/feeds/splitdns/luci-app-syscontrol/clean#0.10#0.15#0.22
+make[1]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt'
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/exim/Makefile' has a dependency on 'libcrypt-compat', which does not exist
+WARNING: Makefile 'package/feeds/packages/onionshare-cli/Makefile' has a dependency on 'python3-pysocks', which does not exist
+WARNING: Makefile 'package/feeds/packages/onionshare-cli/Makefile' has a dependency on 'python3-unidecode', which does not exist
+WARNING: Makefile 'package/feeds/packages/python-zope-event/Makefile' has a build dependency on 'python-setuptools/host', which does not exist
+WARNING: Makefile 'package/feeds/packages/python-zope-interface/Makefile' has a build dependency on 'python-setuptools/host', which does not exist
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/config'
+make[2]: 'conf' is up to date.
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/config'
+make[1]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt'
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/modules/luci-base'
+[ ! -d ./src/ ] || cp -fpR ./src/* /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/hostpkg/luci-base
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/hostpkg/luci-base/.prepared874ba9a8a5d99cc4b8b33ba86878f1a6_6664517399ebbbc92a37c5bb081b5c53
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/hostpkg/luci-base/.configured
+make -C src/ clean po2lmo jsmin
+make[3]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/modules/luci-base/src'
+rm -f contrib/lemon lib/*.o lib/plural_formula.c lib/plural_formula.h core.so version.uc
+cc -std=gnu17 -o contrib/lemon contrib/lemon.c
+./contrib/lemon -q lib/plural_formula.y
+cc    -DNDEBUG -c -o lib/lmo.o lib/lmo.c
+cc    -DNDEBUG -c -o lib/plural_formula.o lib/plural_formula.c
+cc  -o po2lmo po2lmo.o lib/lmo.o lib/plural_formula.o
+make[3]: 'jsmin' is up to date.
+make[3]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/modules/luci-base/src'
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/hostpkg/luci-base/.built
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/hostpkg/bin
+install -m0755 src/po2lmo /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/hostpkg/bin/po2lmo
+install -m0755 src/jsmin /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/hostpkg/bin/jsmin
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/hostpkg/stamp
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/hostpkg/luci-base/.built
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/hostpkg/stamp/.luci-base_installed 
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/modules/luci-base'
+time: package/feeds/luci/luci-base/host-compile#1.03#0.91#1.84
++ mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl
++ cd /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl
++ mkdir -p bin lib stamp usr/include usr/lib
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/stamp
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/.prepared
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/libs/toolchain'
+echo "libc" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/toolchain.default.install
+echo "libgcc" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/toolchain.default.install
+echo "libatomic" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/toolchain.default.install
+echo "libstdcpp" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/toolchain.default.install
+echo "libpthread" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/toolchain.default.install
+echo "librt" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/toolchain.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/libs/toolchain'
+time: package/libs/toolchain/compile#0.16#0.19#0.31
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/utils/lua'
+echo "liblua" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/lua.default.install
+echo "lua" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/lua.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/utils/lua'
+time: package/utils/lua/compile#0.23#0.29#0.45
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/libs/libjson-c'
+echo "libjson-c" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/libjson-c.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/libs/libjson-c'
+time: package/libs/libjson-c/compile#0.20#0.31#0.44
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/libs/libmd'
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/libs/libmd'
+time: package/libs/libmd/compile#0.15#0.20#0.30
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/libs/libnl-tiny'
+echo "libnl-tiny" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/libnl-tiny.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/libs/libnl-tiny'
+time: package/libs/libnl-tiny/compile#0.18#0.22#0.35
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/libs/libubox'
+echo "libubox" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/libubox.default.install
+echo "libblobmsg-json" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/libubox.default.install
+echo "jshn" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/libubox.default.install
+echo "libjson-script" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/libubox.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/libs/libubox'
+time: package/libs/libubox/compile#0.25#0.32#0.50
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/system/ubus'
+echo "libubus" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ubus.default.install
+echo "libubus-lua" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ubus.default.install
+echo "ubus" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ubus.default.install
+echo "ubusd" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ubus.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/system/ubus'
+time: package/system/ubus/compile#0.16#0.25#0.36
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/system/uci'
+echo "libuci" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/uci.default.install
+echo "uci" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/uci.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/system/uci'
+time: package/system/uci/compile#0.18#0.24#0.36
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/utils/ucode'
+echo "libucode" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ucode.default.install
+echo "ucode" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ucode.default.install
+echo "ucode-mod-fs" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ucode.default.install
+echo "ucode-mod-log" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ucode.default.install
+echo "ucode-mod-math" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ucode.default.install
+echo "ucode-mod-nl80211" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ucode.default.install
+echo "ucode-mod-rtnl" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ucode.default.install
+echo "ucode-mod-ubus" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ucode.default.install
+echo "ucode-mod-uci" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ucode.default.install
+echo "ucode-mod-digest" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ucode.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/utils/ucode'
+time: package/utils/ucode/compile#0.30#0.38#0.59
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/contrib/package/lucihttp'
+echo "liblucihttp" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/lucihttp.default.install
+echo "liblucihttp-lua" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/lucihttp.default.install
+echo "liblucihttp-ucode" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/lucihttp.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/contrib/package/lucihttp'
+time: package/feeds/luci/lucihttp/compile#0.18#0.27#0.40
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/network/utils/iwinfo'
+echo "libiwinfo" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/iwinfo.default.install
+echo "libiwinfo-data" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/iwinfo.default.install
+echo "iwinfo" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/iwinfo.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/network/utils/iwinfo'
+time: package/network/utils/iwinfo/compile#0.17#0.26#0.37
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/system/rpcd'
+echo "rpcd" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/rpcd.default.install
+echo "rpcd-mod-file" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/rpcd.default.install
+echo "rpcd-mod-rpcsys" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/rpcd.default.install
+echo "rpcd-mod-iwinfo" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/rpcd.default.install
+echo "rpcd-mod-ucode" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/rpcd.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/system/rpcd'
+time: package/system/rpcd/compile#0.18#0.26#0.39
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/libs/rpcd-mod-luci'
+echo "rpcd-mod-luci" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/rpcd-mod-luci.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/libs/rpcd-mod-luci'
+time: package/feeds/luci/rpcd-mod-luci/compile#0.14#0.20#0.30
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/contrib/package/ucode-mod-html'
+echo "ucode-mod-html" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/ucode-mod-html.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/contrib/package/ucode-mod-html'
+time: package/feeds/luci/ucode-mod-html/compile#0.14#0.25#0.33
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/packages/net/cgi-io'
+echo "cgi-io" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/cgi-io.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/packages/net/cgi-io'
+time: package/feeds/packages/cgi-io/compile#0.17#0.25#0.37
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/utils/lua'
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/package/utils/lua'
+time: package/utils/lua/host-compile#0.23#0.28#0.44
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/contrib/package/csstidy'
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/contrib/package/csstidy'
+time: package/feeds/luci/csstidy/host-compile#0.26#0.31#0.49
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/modules/luci-base'
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.prepared_86463fbf53b77bb03a1e6dafb0fb1a9e_6664517399ebbbc92a37c5bb081b5c53_check
+for d in luasrc ucode htdocs root src; do if [ -d ./$d ]; then mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/$d; cp -fpR ./$d/* /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/$d/; fi; done
+cp -fpR ../../NOTICE /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base
+cp -fpR ../../LICENSE /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base
+true
+[ ! -d ./src/ ] || cp -fpR ./src/. /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.prepared_86463fbf53b77bb03a1e6dafb0fb1a9e_6664517399ebbbc92a37c5bb081b5c53
+rm -f /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.configured_*
+rm -f /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/stamp/.luci-base_installed
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.configured_811dc2f0ccfbe4b68a068320f8578dbe
+rm -f /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.built
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.built_check
+CFLAGS="-Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro  -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include/fortify " CXXFLAGS="-Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro  -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include/fortify " LDFLAGS="-L/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/lib -L/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/lib -fuse-ld=bfd -znow -zrelro " FPIC="-DPIC -fpic" LUCI_VERSION="25.340.26705~d88390b" LUCI_GITBRANCH="LuCI openwrt-24.10 branch" make -j1 -C /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/src/ AR="x86_64-openwrt-linux-musl-gcc-ar" AS="x86_64-openwrt-linux-musl-gcc -c -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro" LD="x86_64-openwrt-linux-musl-ld.bfd" NM="x86_64-openwrt-linux-musl-gcc-nm" CC="x86_64-openwrt-linux-musl-gcc" GCC="x86_64-openwrt-linux-musl-gcc" CXX="x86_64-openwrt-linux-musl-g++" RANLIB="x86_64-openwrt-linux-musl-gcc-ranlib" STRIP=x86_64-openwrt-linux-musl-strip OBJCOPY=x86_64-openwrt-linux-musl-objcopy OBJDUMP=x86_64-openwrt-linux-musl-objdump SIZE=x86_64-openwrt-linux-musl-size CROSS="x86_64-openwrt-linux-musl-" ARCH="x86_64" clean compile;
+make[3]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/src'
+rm -f contrib/lemon lib/*.o lib/plural_formula.c lib/plural_formula.h core.so version.uc
+x86_64-openwrt-linux-musl-gcc  -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro  -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include/fortify  -DPIC -fpic -DNDEBUG -c -o lib/luci.o lib/luci.c
+cc -std=gnu17 -o contrib/lemon contrib/lemon.c
+./contrib/lemon -q lib/plural_formula.y
+x86_64-openwrt-linux-musl-gcc  -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro  -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include/fortify  -DPIC -fpic -DNDEBUG -c -o lib/lmo.o lib/lmo.c
+x86_64-openwrt-linux-musl-gcc  -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro  -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include/fortify  -DPIC -fpic -DNDEBUG -c -o lib/plural_formula.o lib/plural_formula.c
+x86_64-openwrt-linux-musl-gcc -L/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/lib -L/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/lib -fuse-ld=bfd -znow -zrelro  -shared -lcrypt -o core.so lib/luci.o lib/lmo.o lib/plural_formula.o
+echo "export const revision = '25.340.26705~d88390b', branch = 'LuCI openwrt-24.10 branch';" > version.uc
+make[3]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/src'
+CFLAGS="-Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro  -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include/fortify " CXXFLAGS="-Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro  -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include/fortify " LDFLAGS="-L/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/lib -L/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/lib -fuse-ld=bfd -znow -zrelro " FPIC="-DPIC -fpic" LUCI_VERSION="25.340.26705~d88390b" LUCI_GITBRANCH="LuCI openwrt-24.10 branch" make -C /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/src/ AR="x86_64-openwrt-linux-musl-gcc-ar" AS="x86_64-openwrt-linux-musl-gcc -c -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro" LD="x86_64-openwrt-linux-musl-ld.bfd" NM="x86_64-openwrt-linux-musl-gcc-nm" CC="x86_64-openwrt-linux-musl-gcc" GCC="x86_64-openwrt-linux-musl-gcc" CXX="x86_64-openwrt-linux-musl-g++" RANLIB="x86_64-openwrt-linux-musl-gcc-ranlib" STRIP=x86_64-openwrt-linux-musl-strip OBJCOPY=x86_64-openwrt-linux-musl-objcopy OBJDUMP=x86_64-openwrt-linux-musl-objdump SIZE=x86_64-openwrt-linux-musl-size CROSS="x86_64-openwrt-linux-musl-" ARCH="x86_64" DESTDIR="/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install"   install;
+make[3]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/src'
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/usr/lib/ucode/luci
+cp core.so /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/usr/lib/ucode/luci/core.so
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/usr/share/ucode/luci
+cp version.uc /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/usr/share/ucode/luci/version.uc
+make[3]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/src'
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.built
+rm -rf /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base.installed /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base/usr/share/ucode/luci
+cp -pR /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ucode/* /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base/usr/share/ucode/luci/
+find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base/usr/share/ucode/luci/ -type f -name '*.htm' | while read src; do /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/sed -i -e 's/<%# *\([^ ]*\)PKG_VERSION *%>/\125.340.26705~d88390b/g' -e 's/"\(<%= *\(media\|resource\) *%>[^"]*\.\(js\|css\)\)"/"\1?v=25.340.26705~d88390b"/g' "$src"; done; find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base/usr/share/ucode/luci/ -type f -name '*.ut' | while read src; do /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/sed -i -e 's/{# *\([^ ]*\)PKG_VERSION *#}/\125.340.26705~d88390b/g' -e 's/"\({{ *\(media\|resource\) *}}[^"]*\.\(js\|css\)\)"/"\1?v=25.340.26705~d88390b"/g' "$src"; done
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base/www
+cp -pR /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/htdocs/* /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base/www/
+find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base/www/ -type f -name '*.js' | while read src; do if jsmin < "$src" > "$src.o"; then mv "$src.o" "$src"; fi; done
+find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base/www/ -type f -name '*.css' | while read src; do if csstidy "$src" --template=highest --remove_last_semicolon=true "$src.o"; then mv "$src.o" "$src"; fi; done
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base/
+cp -pR /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/root/* /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base/
+CFLAGS="-Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro  -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include/fortify " CXXFLAGS="-Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro  -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include/fortify " LDFLAGS="-L/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/lib -L/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/lib -fuse-ld=bfd -znow -zrelro " FPIC="-DPIC -fpic" LUCI_VERSION="25.340.26705~d88390b" LUCI_GITBRANCH="LuCI openwrt-24.10 branch" make -C /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/src/ AR="x86_64-openwrt-linux-musl-gcc-ar" AS="x86_64-openwrt-linux-musl-gcc -c -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro" LD="x86_64-openwrt-linux-musl-ld.bfd" NM="x86_64-openwrt-linux-musl-gcc-nm" CC="x86_64-openwrt-linux-musl-gcc" GCC="x86_64-openwrt-linux-musl-gcc" CXX="x86_64-openwrt-linux-musl-g++" RANLIB="x86_64-openwrt-linux-musl-gcc-ranlib" STRIP=x86_64-openwrt-linux-musl-strip OBJCOPY=x86_64-openwrt-linux-musl-objcopy OBJDUMP=x86_64-openwrt-linux-musl-objdump SIZE=x86_64-openwrt-linux-musl-size CROSS="x86_64-openwrt-linux-musl-" ARCH="x86_64" DESTDIR="/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install"   install;
+make[3]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/src'
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/usr/lib/ucode/luci
+cp core.so /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/usr/lib/ucode/luci/core.so
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/usr/share/ucode/luci
+cp version.uc /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/usr/share/ucode/luci/version.uc
+make[3]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/src'
+cp -fpR /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/* /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base/
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base.installed
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/root-x86/stamp
+SHELL= flock /home/buildbot/openwrt-splitdns/workdir/openwrt/tmp/.root-copy.flock -c 'cp -fpR /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-base/. /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/root-x86/'
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/root-x86/stamp/.luci-base_installed
+rm -rf /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base
+/home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/ipkg-remove luci-base /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci/luci-base_25.340.26705~d88390b_x86_64.ipk
+removed '/home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci/luci-base_25.340.26705~d88390b_x86_64.ipk'
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/targets/x86/64/packages /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/usr/share/ucode/luci
+cp -pR /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ucode/* /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/usr/share/ucode/luci/
+find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/usr/share/ucode/luci/ -type f -name '*.htm' | while read src; do /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/sed -i -e 's/<%# *\([^ ]*\)PKG_VERSION *%>/\125.340.26705~d88390b/g' -e 's/"\(<%= *\(media\|resource\) *%>[^"]*\.\(js\|css\)\)"/"\1?v=25.340.26705~d88390b"/g' "$src"; done; find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/usr/share/ucode/luci/ -type f -name '*.ut' | while read src; do /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/sed -i -e 's/{# *\([^ ]*\)PKG_VERSION *#}/\125.340.26705~d88390b/g' -e 's/"\({{ *\(media\|resource\) *}}[^"]*\.\(js\|css\)\)"/"\1?v=25.340.26705~d88390b"/g' "$src"; done
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/www
+cp -pR /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/htdocs/* /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/www/
+find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/www/ -type f -name '*.js' | while read src; do if jsmin < "$src" > "$src.o"; then mv "$src.o" "$src"; fi; done
+find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/www/ -type f -name '*.css' | while read src; do if csstidy "$src" --template=highest --remove_last_semicolon=true "$src.o"; then mv "$src.o" "$src"; fi; done
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/
+cp -pR /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/root/* /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/
+CFLAGS="-Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro  -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include/fortify " CXXFLAGS="-Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro  -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include/fortify " LDFLAGS="-L/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/lib -L/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/lib -fuse-ld=bfd -znow -zrelro " FPIC="-DPIC -fpic" LUCI_VERSION="25.340.26705~d88390b" LUCI_GITBRANCH="LuCI openwrt-24.10 branch" make -C /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/src/ AR="x86_64-openwrt-linux-musl-gcc-ar" AS="x86_64-openwrt-linux-musl-gcc -c -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base=luci-base -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro" LD="x86_64-openwrt-linux-musl-ld.bfd" NM="x86_64-openwrt-linux-musl-gcc-nm" CC="x86_64-openwrt-linux-musl-gcc" GCC="x86_64-openwrt-linux-musl-gcc" CXX="x86_64-openwrt-linux-musl-g++" RANLIB="x86_64-openwrt-linux-musl-gcc-ranlib" STRIP=x86_64-openwrt-linux-musl-strip OBJCOPY=x86_64-openwrt-linux-musl-objcopy OBJDUMP=x86_64-openwrt-linux-musl-objdump SIZE=x86_64-openwrt-linux-musl-size CROSS="x86_64-openwrt-linux-musl-" ARCH="x86_64" DESTDIR="/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install"   install;
+make[3]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/src'
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/usr/lib/ucode/luci
+cp core.so /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/usr/lib/ucode/luci/core.so
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/usr/share/ucode/luci
+cp version.uc /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/usr/share/ucode/luci/version.uc
+make[3]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/src'
+cp -fpR /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-install/* /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/
+find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base -name 'CVS' -o -name '.svn' -o -name '.#*' -o -name '*~'| xargs -r rm -rf
+export CROSS="x86_64-openwrt-linux-musl-"  NO_RENAME=1 ; NM="x86_64-openwrt-linux-musl-nm" STRIP="/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/sstrip -z" STRIP_KMOD="/home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/strip-kmod.sh" PATCHELF="/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/patchelf" /home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/rstrip.sh /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base
+rstrip.sh: /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/usr/lib/ucode/luci/core.so: shared object
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/CONTROL
+(cd /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base/CONTROL; ( echo "$CONTROL"; printf "Description: "; echo "$DESCRIPTION" | sed -e 's,^[[:space:]]*, ,g'; ) > control; chmod 644 control; ( echo "#!/bin/sh"; echo "[ \"\${IPKG_NO_SCRIPT}\" = \"1\" ] && exit 0"; echo "[ -s "\${IPKG_INSTROOT}/lib/functions.sh" ] || exit 0"; echo ". \${IPKG_INSTROOT}/lib/functions.sh"; echo "default_postinst \$0 \$@"; ) > postinst; ( echo "#!/bin/sh"; echo "[ -s "\${IPKG_INSTROOT}/lib/functions.sh" ] || exit 0"; echo ". \${IPKG_INSTROOT}/lib/functions.sh"; echo "default_prerm \$0 \$@"; ) > prerm; chmod 0755 postinst prerm; echo "$V_Package_luci_base_conffiles" > conffiles;  echo "$V_Package_luci_base_postinst" > postinst-pkg; chmod 0755 postinst-pkg; )
+/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/fakeroot /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/bash /home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/ipkg-build -m "" /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci
+Packaged contents of /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-x86_64/luci-base into /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci/luci-base_25.340.26705~d88390b_x86_64.ipk
+rm -rf /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-cn
+/home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/ipkg-remove luci-i18n-base-zh-cn /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci/luci-i18n-base-zh-cn_25.340.26705~d88390b_all.ipk
+removed '/home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci/luci-i18n-base-zh-cn_25.340.26705~d88390b_all.ipk'
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/targets/x86/64/packages /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-cn /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-cn/etc/uci-defaults
+echo "uci set luci.languages.zh_cn='简体中文 (Simplified Chinese)'; uci commit luci" > /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-cn/etc/uci-defaults/luci-i18n-base-zh-cn
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-cn/usr/lib/lua/luci/i18n
+po2lmo /home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/modules/luci-base/po/zh_Hans/base.po /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-cn/usr/lib/lua/luci/i18n/base.zh-cn.lmo;
+find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-cn -name 'CVS' -o -name '.svn' -o -name '.#*' -o -name '*~'| xargs -r rm -rf
+export CROSS="x86_64-openwrt-linux-musl-"  NO_RENAME=1 ; NM="x86_64-openwrt-linux-musl-nm" STRIP="/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/sstrip -z" STRIP_KMOD="/home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/strip-kmod.sh" PATCHELF="/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/patchelf" /home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/rstrip.sh /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-cn
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-cn/CONTROL
+(cd /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-cn/CONTROL; ( echo "$CONTROL"; printf "Description: "; echo "$DESCRIPTION" | sed -e 's,^[[:space:]]*, ,g'; ) > control; chmod 644 control; ( echo "#!/bin/sh"; echo "[ \"\${IPKG_NO_SCRIPT}\" = \"1\" ] && exit 0"; echo "[ -s "\${IPKG_INSTROOT}/lib/functions.sh" ] || exit 0"; echo ". \${IPKG_INSTROOT}/lib/functions.sh"; echo "default_postinst \$0 \$@"; ) > postinst; ( echo "#!/bin/sh"; echo "[ -s "\${IPKG_INSTROOT}/lib/functions.sh" ] || exit 0"; echo ". \${IPKG_INSTROOT}/lib/functions.sh"; echo "default_prerm \$0 \$@"; ) > prerm; chmod 0755 postinst prerm;  )
+/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/fakeroot /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/bash /home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/ipkg-build -m "" /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-cn /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci
+Packaged contents of /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-cn into /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci/luci-i18n-base-zh-cn_25.340.26705~d88390b_all.ipk
+rm -rf /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-tw
+/home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/ipkg-remove luci-i18n-base-zh-tw /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci/luci-i18n-base-zh-tw_25.340.26705~d88390b_all.ipk
+removed '/home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci/luci-i18n-base-zh-tw_25.340.26705~d88390b_all.ipk'
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/targets/x86/64/packages /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-tw /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-tw/etc/uci-defaults
+echo "uci set luci.languages.zh_tw='正體中文 (Traditional Chinese)'; uci commit luci" > /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-tw/etc/uci-defaults/luci-i18n-base-zh-tw
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-tw/usr/lib/lua/luci/i18n
+po2lmo /home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/modules/luci-base/po/zh_Hant/base.po /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-tw/usr/lib/lua/luci/i18n/base.zh-tw.lmo;
+find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-tw -name 'CVS' -o -name '.svn' -o -name '.#*' -o -name '*~'| xargs -r rm -rf
+export CROSS="x86_64-openwrt-linux-musl-"  NO_RENAME=1 ; NM="x86_64-openwrt-linux-musl-nm" STRIP="/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/sstrip -z" STRIP_KMOD="/home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/strip-kmod.sh" PATCHELF="/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/patchelf" /home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/rstrip.sh /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-tw
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-tw/CONTROL
+(cd /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-tw/CONTROL; ( echo "$CONTROL"; printf "Description: "; echo "$DESCRIPTION" | sed -e 's,^[[:space:]]*, ,g'; ) > control; chmod 644 control; ( echo "#!/bin/sh"; echo "[ \"\${IPKG_NO_SCRIPT}\" = \"1\" ] && exit 0"; echo "[ -s "\${IPKG_INSTROOT}/lib/functions.sh" ] || exit 0"; echo ". \${IPKG_INSTROOT}/lib/functions.sh"; echo "default_postinst \$0 \$@"; ) > postinst; ( echo "#!/bin/sh"; echo "[ -s "\${IPKG_INSTROOT}/lib/functions.sh" ] || exit 0"; echo ". \${IPKG_INSTROOT}/lib/functions.sh"; echo "default_prerm \$0 \$@"; ) > prerm; chmod 0755 postinst prerm;  )
+/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/fakeroot /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/host/bin/bash /home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/ipkg-build -m "" /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-tw /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci
+Packaged contents of /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/ipkg-all/luci-i18n-base-zh-tw into /home/buildbot/openwrt-splitdns/workdir/openwrt/bin/packages/x86_64/luci/luci-i18n-base-zh-tw_25.340.26705~d88390b_all.ipk
+echo "luci-base" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/luci-base.default.install
+rm -rf /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-cn.installed /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-cn
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-cn
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-cn/etc/uci-defaults
+echo "uci set luci.languages.zh_cn='简体中文 (Simplified Chinese)'; uci commit luci" > /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-cn/etc/uci-defaults/luci-i18n-base-zh-cn
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-cn/usr/lib/lua/luci/i18n
+po2lmo /home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/modules/luci-base/po/zh_Hans/base.po /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-cn/usr/lib/lua/luci/i18n/base.zh-cn.lmo;
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-cn.installed
+rm -rf /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-tw.installed /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-tw
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-tw
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-tw/etc/uci-defaults
+echo "uci set luci.languages.zh_tw='正體中文 (Traditional Chinese)'; uci commit luci" > /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-tw/etc/uci-defaults/luci-i18n-base-zh-tw
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-tw/usr/lib/lua/luci/i18n
+po2lmo /home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/modules/luci-base/po/zh_Hant/base.po /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-tw/usr/lib/lua/luci/i18n/base.zh-tw.lmo;
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-tw.installed
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/root-x86/stamp
+SHELL= flock /home/buildbot/openwrt-splitdns/workdir/openwrt/tmp/.root-copy.flock -c 'cp -fpR /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-cn/. /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/root-x86/'
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/root-x86/stamp/.luci-i18n-base-zh-cn_installed
+echo "luci-i18n-base-zh-cn" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/luci-base.default.install
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/root-x86/stamp
+SHELL= flock /home/buildbot/openwrt-splitdns/workdir/openwrt/tmp/.root-copy.flock -c 'cp -fpR /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-base/.pkgdir/luci-i18n-base-zh-tw/. /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/root-x86/'
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/root-x86/stamp/.luci-i18n-base-zh-tw_installed
+echo "luci-i18n-base-zh-tw" >> /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/pkginfo/luci-base.default.install
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/luci/modules/luci-base'
+time: package/feeds/luci/luci-base/compile#2.39#2.53#4.63
+make[2]: Entering directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/splitdns/luci-app-syscontrol'
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.prepared_8a501038d04e56b8b489fd1307c5bad6_6664517399ebbbc92a37c5bb081b5c53_check
+# No preparation steps required
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.prepared_8a501038d04e56b8b489fd1307c5bad6_6664517399ebbbc92a37c5bb081b5c53
+rm -f /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.configured_*
+rm -f /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/stamp/.luci-app-syscontrol_installed
+(cd /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/./; if [ -x ./configure ]; then find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/ -name config.guess | xargs -r chmod u+w; find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/ -name config.guess | xargs -r -n1 cp --remove-destination /home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/config.guess; find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/ -name config.sub | xargs -r chmod u+w; find /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/ -name config.sub | xargs -r -n1 cp --remove-destination /home/buildbot/openwrt-splitdns/workdir/openwrt/scripts/config.sub; AR="x86_64-openwrt-linux-musl-gcc-ar" AS="x86_64-openwrt-linux-musl-gcc -c -Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1=luci-app-syscontrol-1.0.1 -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro" LD="x86_64-openwrt-linux-musl-ld.bfd" NM="x86_64-openwrt-linux-musl-gcc-nm" CC="x86_64-openwrt-linux-musl-gcc" GCC="x86_64-openwrt-linux-musl-gcc" CXX="x86_64-openwrt-linux-musl-g++" RANLIB="x86_64-openwrt-linux-musl-gcc-ranlib" STRIP=x86_64-openwrt-linux-musl-strip OBJCOPY=x86_64-openwrt-linux-musl-objcopy OBJDUMP=x86_64-openwrt-linux-musl-objdump SIZE=x86_64-openwrt-linux-musl-size CFLAGS="-Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1=luci-app-syscontrol-1.0.1 -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro " CXXFLAGS="-Os -pipe -fno-caller-saves -fno-plt -fhonour-copts -fmacro-prefix-map=/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1=luci-app-syscontrol-1.0.1 -Wformat -Werror=format-security -fstack-protector -D_FORTIFY_SOURCE=1 -Wl,-z,now -Wl,-z,relro " CPPFLAGS="-I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include -I/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/include/fortify " LDFLAGS="-L/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/usr/lib -L/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/toolchain-x86_64_gcc-13.3.0_musl/lib -fuse-ld=bfd -znow -zrelro "   ./configure --target=x86_64-openwrt-linux --host=x86_64-openwrt-linux --build=x86_64-pc-linux-gnu --disable-dependency-tracking --program-prefix="" --program-suffix="" --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --libexecdir=/usr/lib --sysconfdir=/etc --datadir=/usr/share --localstatedir=/var --mandir=/usr/man --infodir=/usr/info --disable-nls  ; fi; )
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.configured_68b329da9893e34099c7d8ad5cb9c940
+rm -f /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.built
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.built_check
+# No compilation steps required
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.built
+rm -rf /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol.installed /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/etc/config
+install -m0600 ./root/etc/config/77_syscontrol /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/etc/config/
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/etc/init.d
+install -m0755 ./root/etc/init.d/ram_release /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/etc/init.d/
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/usr/bin
+install -m0755 ./root/usr/bin/ram_release.sh /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/usr/bin/
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/usr/share/luci/menu.d
+install -m0644 ./root/usr/share/luci/menu.d/* /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/usr/share/luci/menu.d/
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/usr/share/rpcd/acl.d
+install -m0644 ./root/usr/share/rpcd/acl.d/luci-app-syscontrol.json /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/usr/share/rpcd/acl.d/
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/var/log
+install -m0644 ./root/var/log/ram_release.log /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/var/log/
+install -d -m0755 /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/www/luci-static/resources/view/syscontrol
+cp -fpR ./htdocs/luci-static/resources/view/* /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/www/luci-static/resources/view/syscontrol/
+touch /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol.installed
+mkdir -p /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/root-x86/stamp
+SHELL= flock /home/buildbot/openwrt-splitdns/workdir/openwrt/tmp/.root-copy.flock -c 'cp -fpR /home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/. /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/root-x86/'
+cp: cannot overwrite non-directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/root-x86/./var' with directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/build_dir/target-x86_64_musl/luci-app-syscontrol-1.0.1/.pkgdir/luci-app-syscontrol/./var'
+make[2]: *** [Makefile:89: /home/buildbot/openwrt-splitdns/workdir/openwrt/staging_dir/target-x86_64_musl/root-x86/stamp/.luci-app-syscontrol_installed] Error 1
+make[2]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt/feeds/splitdns/luci-app-syscontrol'
+time: package/feeds/splitdns/luci-app-syscontrol/compile#0.16#0.26#0.38
+    ERROR: package/feeds/splitdns/luci-app-syscontrol failed to build.
+make[1]: *** [package/Makefile:176: package/feeds/splitdns/luci-app-syscontrol/compile] Error 1
+make[1]: Leaving directory '/home/buildbot/openwrt-splitdns/workdir/openwrt'
+make: *** [/home/buildbot/openwrt-splitdns/workdir/openwrt/include/toplevel.mk:233: package/feeds/splitdns/luci-app-syscontrol/compile] Error 2
