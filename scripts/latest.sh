@@ -27,7 +27,7 @@ REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
 
 : "${WORKDIR:=$REPO_ROOT/workdir}"              # workspace directory
 : "${BUILDROOT_DIR:=$WORKDIR/openwrt}"          # OpenWrt buildroot path
-: "${CONFIG_FILE:=$REPO_ROOT/openwrt-24.10.5v0.2.config}"
+: "${CONFIG_FILE:=$REPO_ROOT/configs/openwrt-24.10.5/latest.config}"
 
 : "${JOBS:=$(nproc)}"
 : "${V:=}"                                      # set V=s for verbose build
