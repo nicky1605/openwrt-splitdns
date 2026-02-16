@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ###############################################################################
-# openwrt-splitdns build_v0.2.sh
+# openwrt-splitdns build_v0.2.sh (latest)
 #
 # Baseline:
 #   - OpenWrt v24.10.5 (from https://github.com/nicky1605/openwrt, branch openwrt-24.10)
@@ -14,15 +14,17 @@ set -euo pipefail
 # Rootfs:
 #   - set default opkg distfeeds to OpenWrt USTC mirror (no ImmortalWrt sources)
 # Config:
-#   - default to openwrt-24.10.5v0.2.config (copied to buildroot as .config then make defconfig)
+#   - default to configs/openwrt-24.10.5/latest.config (copied to buildroot as .config then make defconfig)
 ###############################################################################
 
-REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
+# IMPORTANT: scripts/latest.sh lives in repo_root/scripts/.
+# REPO_ROOT must point to repo root, not scripts/.
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # ---- user-tunable env vars ----
 : "${OPENWRT_REPO:=https://github.com/nicky1605/openwrt.git}"
 : "${OPENWRT_BRANCH:=openwrt-24.10}"
-: "${OPENWRT_TAG:=v24.10.5}"                    # try checkout tag; fallback to branch HEAD if not found
+: "${OPENWRT_TAG:=v24.10.5}"                    # prefer tag; fallback to branch HEAD if not found
 : "${SPLITDNS_FEED_URL:=https://github.com/nicky1605/openwrt-splitdns-feed.git}"
 
 : "${WORKDIR:=$REPO_ROOT/workdir}"              # workspace directory
@@ -35,9 +37,9 @@ REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
 : "${CLEAN:=0}"                                 # 1 to make distclean before applying config
 
 # ---- helpers ----
-log() { echo -e "\033[1;32m[build]\033[0m $*"; }
+log()  { echo -e "\033[1;32m[build]\033[0m $*"; }
 warn() { echo -e "\033[1;33m[warn]\033[0m $*" >&2; }
-die() { echo -e "\033[1;31m[err ]\033[0m $*" >&2; exit 1; }
+die()  { echo -e "\033[1;31m[err ]\033[0m $*" >&2; exit 1; }
 
 require_file() {
   [[ -f "$1" ]] || die "Missing file: $1"
@@ -58,28 +60,36 @@ git_clone_or_update() {
   else
     log "Cloning repo: $url (branch: $branch) -> $dir"
     mkdir -p "$(dirname "$dir")"
+    # Shallow clone for speed (CI), but we will explicitly fetch tag later if needed.
     git clone --depth 1 --branch "$branch" "$url" "$dir"
-    # fetch tags too (in case OPENWRT_TAG exists)
-    git -C "$dir" fetch --tags --depth 1 || true
+    git -C "$dir" fetch --tags --prune || true
   fi
 }
 
 try_checkout_tag() {
   local dir="$1" tag="$2"
+
+  # In shallow clones, tags may exist but the tagged commit may not be present.
+  # Fetch the tag explicitly (best-effort), then checkout.
+  log "Trying to checkout tag: $tag"
+  git -C "$dir" fetch --force --prune origin "refs/tags/$tag:refs/tags/$tag" 2>/dev/null || true
+
   if git -C "$dir" rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
-    log "Checking out tag: $tag"
     git -C "$dir" checkout -f "$tag"
     return 0
   fi
-  warn "Tag '$tag' not found locally; keep branch HEAD."
+
+  warn "Tag '$tag' not found; keep branch HEAD."
   return 1
 }
 
 main() {
   require_file "$CONFIG_FILE"
 
-  log "REPO_ROOT: $REPO_ROOT"
-  log "WORKDIR:   $WORKDIR"
+  log "REPO_ROOT:      $REPO_ROOT"
+  log "WORKDIR:        $WORKDIR"
+  log "BUILDROOT_DIR:  $BUILDROOT_DIR"
+  log "CONFIG_FILE:    $CONFIG_FILE"
   mkdir -p "$WORKDIR"
 
   # 1) Get baseline OpenWrt buildroot
@@ -140,11 +150,11 @@ main() {
   log "Writing default /etc/opkg/distfeeds.conf (OpenWrt USTC mirror)"
   mkdir -p "files/etc/opkg"
   cat > "files/etc/opkg/distfeeds.conf" <<'EOF'
-src/gz openwrt_core     https://mirrors.ustc.edu.cn/openwrt/releases/24.10.5/targets/x86/64/packages
-src/gz openwrt_base     https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/base
-src/gz openwrt_luci     https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/luci
-src/gz openwrt_packages https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/packages
-src/gz openwrt_routing  https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/routing
+src/gz openwrt_core      https://mirrors.ustc.edu.cn/openwrt/releases/24.10.5/targets/x86/64/packages
+src/gz openwrt_base      https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/base
+src/gz openwrt_luci      https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/luci
+src/gz openwrt_packages  https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/packages
+src/gz openwrt_routing   https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/routing
 src/gz openwrt_telephony https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/telephony
 EOF
 
@@ -172,4 +182,3 @@ EOF
 }
 
 main "$@"
-
