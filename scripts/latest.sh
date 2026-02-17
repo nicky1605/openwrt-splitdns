@@ -50,18 +50,28 @@ ensure_line_in_file() {
 
 git_clone_or_update() {
   local url="$1" branch="$2" dir="$3"
+
+  # Case A: already a git repo
   if [[ -d "$dir/.git" ]]; then
     log "Updating existing repo: $dir"
     git -C "$dir" fetch --all --tags --prune
     git -C "$dir" checkout "$branch"
     git -C "$dir" pull --ff-only || true
-  else
-    log "Cloning repo: $url (branch: $branch) -> $dir"
-    mkdir -p "$(dirname "$dir")"
-    git clone --depth 1 --branch "$branch" "$url" "$dir"
-    git -C "$dir" fetch --tags --prune || true
+    return 0
   fi
+
+  # Case B: dir exists but not a git repo (e.g. restored from cache) -> wipe and re-clone
+  if [[ -e "$dir" ]]; then
+    warn "Directory exists but is not a git repo, removing: $dir"
+    rm -rf "$dir"
+  fi
+
+  log "Cloning repo: $url (branch: $branch) -> $dir"
+  mkdir -p "$(dirname "$dir")"
+  git clone --depth 1 --branch "$branch" "$url" "$dir"
+  git -C "$dir" fetch --tags --prune || true
 }
+
 
 try_checkout_tag() {
   local dir="$1" tag="$2"
