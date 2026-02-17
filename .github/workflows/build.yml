@@ -2,13 +2,13 @@ name: Build OpenWrt SplitDNS
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "main" ]
-    paths:
-      - "build.sh"
-      - "scripts/**"
-      - "configs/**"
-      - ".github/workflows/**"
+#  push:
+#    branches: [ "main" ]
+#    paths:
+#      - "build.sh"
+#      - "scripts/**"
+#      - "configs/**"
+#      - ".github/workflows/**"
 
 jobs:
   build:
@@ -67,17 +67,20 @@ jobs:
 
       - name: Build
         env:
-          # Make build deterministic and faster
           CCACHE_DIR: ${{ env.CCACHE_DIR }}
         run: |
           set -euo pipefail
           chmod +x build.sh scripts/*.sh || true
+
           # Ensure ccache is used by OpenWrt
           export USE_CCACHE=1
           export CCACHE_DIR="${CCACHE_DIR}"
           ccache -z || true
 
-          ./build.sh 2>&1 | tee build.log
+          # IMPORTANT:
+          # - Do NOT pipe to tee here.
+          # - scripts/latest.sh already captures full logs, prints error summary on failure, and preserves exit code.
+          ./build.sh
 
           ccache -s || true
           df -h
@@ -85,30 +88,63 @@ jobs:
 
       - name: Collect artifacts
         if: always()
+        env:
+          # default OFF (set to "1" later if you want to ship ipk)
+          UPLOAD_IPK: "0"
         run: |
           set -euo pipefail
-          mkdir -p artifacts
+          mkdir -p artifacts/firmware artifacts/logs artifacts/ipk
 
-          # Build log
-          cp -f build.log artifacts/ || true
-
-          # Targets outputs (images, rootfs, manifests)
-          if [ -d workdir/openwrt/bin/targets ]; then
-            tar -C workdir/openwrt/bin -czf artifacts/targets.tar.gz targets
+          # Logs from repo_root/logs (written by scripts/latest.sh)
+          if [ -d logs ]; then
+            cp -a logs/. artifacts/logs/ || true
           fi
 
-          # Also copy only common image types for convenience (best effort)
-          find workdir/openwrt/bin/targets -type f \
-            \( -name "*.img.gz" -o -name "*.vmdk" -o -name "*.vhdx" -o -name "*.qcow2" -o -name "*rootfs.tar.gz" -o -name "sha256sums" -o -name "*.manifest" \) \
-            -print 2>/dev/null | \
-            tar -czf artifacts/firmware_files.tar.gz -T - 2>/dev/null || true
+          # Firmware (targets)
+          if [ -d workdir/openwrt/bin/targets ]; then
+            tar -C workdir/openwrt/bin -czf artifacts/firmware/targets.tar.gz targets || true
 
-          ls -lah artifacts || true
+            find workdir/openwrt/bin/targets -type f \
+              \( -name "*.img.gz" -o -name "*.vmdk" -o -name "*.vhdx" -o -name "*.qcow2" -o -name "*rootfs.tar.gz" -o -name "sha256sums" -o -name "*.manifest" \) \
+              -print 2>/dev/null | \
+              tar -czf artifacts/firmware/firmware_files.tar.gz -T - 2>/dev/null || true
+          fi
 
-      - name: Upload artifacts
+          # Optional IPK packages (default OFF, and only create if *.ipk exists)
+          if [ "${UPLOAD_IPK}" = "1" ] && [ -d workdir/openwrt/bin/packages ]; then
+            if find workdir/openwrt/bin/packages -type f -name "*.ipk" -print -quit | grep -q .; then
+              tar -C workdir/openwrt/bin -czf artifacts/ipk/packages.tar.gz packages || true
+              echo "[ipk ] packages.tar.gz created"
+            else
+              echo "[ipk ] no *.ipk found, skip"
+            fi
+          else
+            echo "[ipk ] disabled or packages dir missing, skip"
+          fi
+
+          echo "[debug] artifacts tree:"
+          find artifacts -maxdepth 3 -type f -print || true
+
+      - name: Upload firmware artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: openwrt-splitdns-${{ github.ref_name }}-${{ github.run_number }}
-          path: artifacts/
+          name: firmware-${{ github.ref_name }}-${{ github.run_number }}
+          path: artifacts/firmware/
+          retention-days: 14
+
+      - name: Upload logs artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-${{ github.ref_name }}-${{ github.run_number }}
+          path: artifacts/logs/
+          retention-days: 14
+
+      - name: Upload ipk artifacts
+        if: always() && hashFiles('artifacts/ipk/packages.tar.gz') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: ipk-${{ github.ref_name }}-${{ github.run_number }}
+          path: artifacts/ipk/packages.tar.gz
           retention-days: 14
