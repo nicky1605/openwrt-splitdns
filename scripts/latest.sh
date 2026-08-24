@@ -5,7 +5,7 @@ set -euo pipefail
 # openwrt-splitdns build_v0.2.sh
 #
 # Baseline:
-#   - OpenWrt v24.10.5 (from https://github.com/nicky1605/openwrt, branch openwrt-24.10)
+#   - OpenWrt v24.10.6 (official tag and peeled commit)
 # Feeds:
 #   - src-git splitdns https://github.com/nicky1605/openwrt-splitdns-feed.git
 # Special:
@@ -14,7 +14,7 @@ set -euo pipefail
 # Rootfs:
 #   - set default opkg distfeeds to OpenWrt USTC mirror
 # Config:
-#   - default to configs/openwrt-24.10.5/latest.config (copied to buildroot as .config then make defconfig)
+#   - default to configs/openwrt-24.10.6/latest.config (copied to buildroot as .config then make defconfig)
 ###############################################################################
 
 # IMPORTANT: scripts/latest.sh lives in repo_root/scripts/.
@@ -22,14 +22,15 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # ---- user-tunable env vars ----
-: "${OPENWRT_REPO:=https://github.com/nicky1605/openwrt.git}"
+: "${OPENWRT_REPO:=https://git.openwrt.org/openwrt/openwrt.git}"
 : "${OPENWRT_BRANCH:=openwrt-24.10}"
-: "${OPENWRT_TAG:=v24.10.5}"
+: "${OPENWRT_TAG:=v24.10.6}"
+: "${OPENWRT_COMMIT:=ec8eeaa8fbd3122b9b9e68b7db02707884a19c9c}"
 : "${SPLITDNS_FEED_URL:=https://github.com/nicky1605/openwrt-splitdns-feed.git}"
 
 : "${WORKDIR:=$REPO_ROOT/workdir}"
 : "${BUILDROOT_DIR:=$WORKDIR/openwrt}"
-: "${CONFIG_FILE:=$REPO_ROOT/configs/openwrt-24.10.5/latest.config}"
+: "${CONFIG_FILE:=$REPO_ROOT/configs/openwrt-24.10.6/latest.config}"
 
 : "${JOBS:=$(nproc)}"
 : "${V:=}"                      # set V=s for verbose build
@@ -75,14 +76,19 @@ git_clone_or_update() {
 
 try_checkout_tag() {
   local dir="$1" tag="$2"
+  local peeled actual
   log "Trying to checkout tag: $tag"
-  git -C "$dir" fetch --force --prune origin "refs/tags/$tag:refs/tags/$tag" 2>/dev/null || true
-  if git -C "$dir" rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
-    git -C "$dir" checkout -f "$tag"
-    return 0
-  fi
-  warn "Tag '$tag' not found; keep branch HEAD."
-  return 1
+  git -C "$dir" fetch --force --prune origin "refs/tags/$tag:refs/tags/$tag" \
+    || die "Failed to fetch required tag: $tag"
+  peeled="$(git -C "$dir" rev-parse "refs/tags/$tag^{}")" \
+    || die "Required annotated tag not found: $tag"
+  [[ "$peeled" == "$OPENWRT_COMMIT" ]] \
+    || die "Tag $tag peeled to $peeled, expected $OPENWRT_COMMIT"
+  git -C "$dir" checkout --detach -f "$peeled"
+  actual="$(git -C "$dir" rev-parse HEAD)"
+  [[ "$actual" == "$OPENWRT_COMMIT" ]] \
+    || die "Checked out $actual, expected $OPENWRT_COMMIT"
+  log "Verified OpenWrt $tag at $actual"
 }
 
 print_error_summary() {
@@ -116,7 +122,7 @@ main() {
 
   # 1) Get baseline OpenWrt buildroot
   git_clone_or_update "$OPENWRT_REPO" "$OPENWRT_BRANCH" "$BUILDROOT_DIR"
-  try_checkout_tag "$BUILDROOT_DIR" "$OPENWRT_TAG" || true
+  try_checkout_tag "$BUILDROOT_DIR" "$OPENWRT_TAG"
 
   cd "$BUILDROOT_DIR"
 
@@ -157,7 +163,7 @@ main() {
   log "Writing default /etc/opkg/distfeeds.conf (OpenWrt USTC mirror)"
   mkdir -p "files/etc/opkg"
   cat > "files/etc/opkg/distfeeds.conf" <<'EOF'
-src/gz openwrt_core      https://mirrors.ustc.edu.cn/openwrt/releases/24.10.5/targets/x86/64/packages
+src/gz openwrt_core      https://mirrors.ustc.edu.cn/openwrt/releases/24.10.6/targets/x86/64/packages
 src/gz openwrt_base      https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/base
 src/gz openwrt_luci      https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/luci
 src/gz openwrt_packages  https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/packages
