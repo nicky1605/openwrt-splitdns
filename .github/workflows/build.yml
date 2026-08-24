@@ -11,7 +11,33 @@ on:
       - ".github/workflows/**"
 
 jobs:
+  artifact-smoke:
+    if: contains(github.event.head_commit.message, '[artifact-smoke]')
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Create smoke artifacts
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/firmware artifacts/logs
+          printf '%s\n' 'artifact upload smoke test' > artifacts/firmware/smoke.txt
+          printf '%s\n' 'artifact upload smoke test' > artifacts/logs/smoke.txt
+
+      - name: Upload firmware smoke artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/firmware/
+          retention-days: 1
+
+      - name: Upload logs smoke artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/logs/
+          retention-days: 1
+
   build:
+    if: ${{ !contains(github.event.head_commit.message, '[artifact-smoke]') }}
     runs-on: ubuntu-22.04
     timeout-minutes: 360
 
@@ -129,7 +155,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: firmware-${{ github.ref_name }}-${{ github.run_number }}
+          name: firmware-${{ github.run_id }}-${{ github.run_attempt }}
           path: artifacts/firmware/
           retention-days: 14
 
@@ -137,7 +163,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: logs-${{ github.ref_name }}-${{ github.run_number }}
+          name: logs-${{ github.run_id }}-${{ github.run_attempt }}
           path: artifacts/logs/
           retention-days: 14
 
@@ -145,6 +171,6 @@ jobs:
         if: always() && hashFiles('artifacts/ipk/packages.tar.gz') != ''
         uses: actions/upload-artifact@v4
         with:
-          name: ipk-${{ github.ref_name }}-${{ github.run_number }}
+          name: ipk-${{ github.run_id }}-${{ github.run_attempt }}
           path: artifacts/ipk/packages.tar.gz
           retention-days: 14
