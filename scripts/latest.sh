@@ -5,7 +5,7 @@ set -euo pipefail
 # openwrt-splitdns build_v0.2.sh
 #
 # Baseline:
-#   - OpenWrt v24.10.6 (official tag and peeled commit)
+#   - OpenWrt v24.10.8 (official tag and peeled commit)
 # Feeds:
 #   - src-git splitdns https://github.com/nicky1605/openwrt-splitdns-feed.git
 # Special:
@@ -14,7 +14,7 @@ set -euo pipefail
 # Rootfs:
 #   - set default opkg distfeeds to OpenWrt USTC mirror
 # Config:
-#   - default to configs/openwrt-24.10.6/latest.config (copied to buildroot as .config then make defconfig)
+#   - default to configs/openwrt-24.10.8/latest.config (copied to buildroot as .config then make defconfig)
 ###############################################################################
 
 # IMPORTANT: scripts/latest.sh lives in repo_root/scripts/.
@@ -24,13 +24,13 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 # ---- user-tunable env vars ----
 : "${OPENWRT_REPO:=https://git.openwrt.org/openwrt/openwrt.git}"
 : "${OPENWRT_BRANCH:=openwrt-24.10}"
-: "${OPENWRT_TAG:=v24.10.6}"
-: "${OPENWRT_COMMIT:=ec8eeaa8fbd3122b9b9e68b7db02707884a19c9c}"
+: "${OPENWRT_TAG:=v24.10.8}"
+: "${OPENWRT_COMMIT:=0b795ce79e23b553aa184080c390f9ce92a2b6d4}"
 : "${SPLITDNS_FEED_URL:=https://github.com/nicky1605/openwrt-splitdns-feed.git}"
 
 : "${WORKDIR:=$REPO_ROOT/workdir}"
 : "${BUILDROOT_DIR:=$WORKDIR/openwrt}"
-: "${CONFIG_FILE:=$REPO_ROOT/configs/openwrt-24.10.6/latest.config}"
+: "${CONFIG_FILE:=$REPO_ROOT/configs/openwrt-24.10.8/latest.config}"
 
 : "${JOBS:=$(nproc)}"
 : "${V:=}"                      # set V=s for verbose build
@@ -163,7 +163,7 @@ main() {
   log "Writing default /etc/opkg/distfeeds.conf (OpenWrt USTC mirror)"
   mkdir -p "files/etc/opkg"
   cat > "files/etc/opkg/distfeeds.conf" <<'EOF'
-src/gz openwrt_core      https://mirrors.ustc.edu.cn/openwrt/releases/24.10.6/targets/x86/64/packages
+src/gz openwrt_core      https://mirrors.ustc.edu.cn/openwrt/releases/24.10.8/targets/x86/64/packages
 src/gz openwrt_base      https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/base
 src/gz openwrt_luci      https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/luci
 src/gz openwrt_packages  https://mirrors.ustc.edu.cn/openwrt/releases/packages-24.10/x86_64/packages

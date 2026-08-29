@@ -3,7 +3,7 @@ name: Build OpenWrt SplitDNS
 on:
   workflow_dispatch:
   push:
-    branches: [ "t02/openwrt-24.10.6" ]
+    branches: [ "t02/openwrt-24.10.8" ]
     paths:
       - "build.sh"
       - "scripts/**"
